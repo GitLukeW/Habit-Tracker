@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<button class="new_dailyhabit_button"><a href="{% url 'habit_new' %}">Add New Habit</a></button>
+     
+  
+<div class="habit_detail_header">Habit: {{ habit.habit }}</div>
+{% endif %}
+    
+{% endblock %}
