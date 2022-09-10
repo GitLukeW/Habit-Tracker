@@ -2,27 +2,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    />
+    {% block css %}{% endblock css %}
     <title>Habit Tracker</title>
-</head>
-<body>
+  </head>
+  <body class="sans-serif bg-near-white">
+      <header class="pa3 bg-near-black white">
+        <h1 class="ma0"><a class="white no-underline">Daily Habits</a></h1>
+        <div class="flex justify-between"></div>
     {% if user.is_authenticated %}
-   <header class="page-header">
-      <div class="username">Hello, {{request.user.username}}</div>
-      <div class="logout"><a href="/accounts/logout">Logout</a></div>
-      <div class="new_button">
-        {% else %}
-        <div class="login"><a href="/accounts/login">Login</a></div>
-        <div class="register"><a href="/accounts/register">New User</a></div>
-        {% endif %}
-      </div>
-    </header>
-    <div>
-    {% block content %}
-    {% endblock %}
+    <div class="mr2 b">
+      Hello, {{request.user.username}}!
+      <a href="/accounts/logout" class="near-white">Log Out</a>
     </div>
-</body>
+    <div class="mr2">
+      <a href={} class="near-white">Today's Habits</a>
+    </div>
+        {% else %}
+        <a href="/accounts/login" class="near-white">Login</a></div>
+        <a href="/accounts/register" class="near-white">New User</a></div>
+        {% endif %}
+    </header>
+    <div>{% block content %} {% endblock %}</div>
+  </body>
+</html>
