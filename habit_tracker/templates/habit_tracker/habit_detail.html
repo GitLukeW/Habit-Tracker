@@ -1,18 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 
 <aside class="actions">
-    {% if user.is_authenticated %}
-    
-    <form
+  {% if user.is_authenticated %}
+
+  <form
     class="inline"
     action="{% url 'habit_remove' pk=habit.pk %}"
     method="post"
   >
     {% csrf_token %}
-    <button><a
-      class="edit_button"
-      href="{% url 'habit_edit' pk=habit.pk %}"
-      >Edit</a></button>
+    <button>
+      <a class="edit_button" href="{% url 'habit_edit' pk=habit.pk %}">Edit</a>
+    </button>
 
     <input
       class="btn btn-danger"
@@ -25,10 +24,8 @@
 </aside>
 {% endif %}
 
-<div class="habit_detail_view">Habit: {{ habit}}
-    Goal: {{habit.target_goal}}{{habit.unit_of_measure}}
-
-    
-  </div>
+<div class="habit_detail_view">
+  Habit: {{ habit}} {{habit.target_goal}} {{habit.unit_of_measure}}
+</div>
 
 {% endblock %}

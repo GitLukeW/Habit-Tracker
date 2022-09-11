@@ -8,3 +8,7 @@ class HabitForm(forms.ModelForm):
         model = Habit
         fields = ('habit', 'target_goal', 'unit_of_measure')
 
+class DailyRecordForm(forms.ModelForm):
+    class Meta:
+        model:DailyRecord
+        fields = ('date_completed', 'goal_status')
