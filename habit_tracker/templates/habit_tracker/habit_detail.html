@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+<aside class="actions">
+    {% if user.is_authenticated %}
+    
+    <form
+    class="inline"
+    action="{% url 'habit_remove' pk=habit.pk %}"
+    method="post"
+  >
+    {% csrf_token %}
+    <button><a
+      class="edit_button"
+      href="{% url 'habit_edit' pk=habit.pk %}"
+      >Edit</a></button>
+
+    <input
+      class="btn btn-danger"
+      href="{% url 'habit_remove' pk=habit.pk %}"
+      type="submit"
+      value="Delete"
+      onclick="return confirm('Confirm, Delete.');"
+    />
+  </form>
+</aside>
+{% endif %}
+
+<div class="habit_detail_view">Habit: {{ habit}}
+    Goal: {{habit.target_goal}}{{habit.unit_of_measure}}
+
+    
+  </div>
+
+{% endblock %}

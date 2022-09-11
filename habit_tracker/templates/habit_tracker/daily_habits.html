@@ -5,8 +5,13 @@
 {% if user.is_authenticated %}
 <button class="new_dailyhabit_button"><a href="{% url 'habit_new' %}">Add New Habit</a></button>
      
-  
-<div class="habit_detail_header">Habit: {{ habit.habit }}</div>
-{% endif %}
+
+<div class="habit_detail_header">Habit:
+    {% for habit in habits %} 
+    <a
+    class="habit_list_box"
+    href="{% url 'habit_detail' pk=habit.pk %}">{{ habit. }}
+{% endfor %}
+{% endif %}</div>
     
 {% endblock %}
