@@ -3,7 +3,7 @@
 {% block content %}
     <h2>New Entry</h2>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ flashcard_form.as_p }}
+        {{ fhabit_form.as_p }}
         <button type="submit" class="save btn btn-secondary">Save</button>
     </form>
 {% endblock %}
